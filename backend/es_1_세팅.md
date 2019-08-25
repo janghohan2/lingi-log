@@ -1,7 +1,7 @@
 # Elasticsearch 세팅 정리
-## 설치
-> 실행 하기 위해 root 계정 외 다른 계정 사용해야 함.\
-> java 8 이상 사용
+## Elasticsearch 설치
+실행 하기 위해 root 계정 외 다른 계정 사용해야 함.\
+java 8 이상 사용
 1. https://www.elastic.co/downloads/elasticsearch 에서 LINUX용 다운
     * yum으로 설치 가능하다고 함...!!
 1. /home/elasticsearch/ 경로에 복사
@@ -40,16 +40,15 @@
                 * elasticsearch.yml_slave_2
             참조.
 
-# LOGSTASH 세팅 정리
-> java 8만 사용\
-> 보통 Elastic Search, Logstash, Kibana를 조합하여 사용함.\
-> 지금은 일단 DB의 데이터를 Elasticsearch에 넣기 위해 Logstash만 사용
-## 설치
+## LOGSTASH 설치
+java 8만 사용\
+보통 Elastic Search, Logstash, Kibana를 조합하여 사용함.\
+지금은 일단 DB의 데이터를 Elasticsearch에 넣기 위해 Logstash만 사용
 * https://www.elastic.co/downloads/logstash 에서 LINUX용 다운
 * /home/elasticsearch/ 경로에 복사
 * tar.gz 압축 풀고 사용
 
-## MariaDB -> Elasticsearch 마이그레이션
+### MariaDB -> Elasticsearch 마이그레이션
 * jdbc 다운로드
     * LOGSTASH_HOME/bin/logstash-plugin install logstash-input-jdbc
     * 자동 다운, 설치가 안돼서 수동 설치함
@@ -58,10 +57,12 @@
 * config 설정(사용 목적에 따라 다양하게 작성하여 사용)
      * `mysql_to_elasticsearch_conf_file.conf` 참조.`
 
-# 사용법
-## 데이터 집어넣기
+## 사용법
+### 데이터 집어넣기
 1. curl 써서 put으로
-    *  curl -XPUT -H 'Content-Type: application/json' 'http://10.10.0.41:9200/my_index/my_type/384279?pretty' -d @./my_data.json
+    ```
+    curl -XPUT -H 'Content-Type: application/json' 'http://10.10.0.41:9200/my_index/my_type/384279?pretty' -d @./my_data.json
+    ```
 1. curl 사용 bulk insert
     *  `curl -XPOST -H 'Content-Type: application/json' 'http://10.10.0.41:9200/my_index/_bulk' --data-binary @my_data_cnt_10000.txt`
     * 파일 형식은 

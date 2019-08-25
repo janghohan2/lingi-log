@@ -2,16 +2,16 @@
 > 데이터를 집어넣으면 자동으로 매핑을 생성해준다.\
 > 하지만  최적화를 위해 매핑을 직접 정의할 수 있다.
 
-매핑 예시
+## 매핑 예시
 ```bash
 curl -XPOST -H 'Content-Type: application/json' 'http://10.10.0.41:9200/my_index/_mapping/my_type?include_type_name=true' -d @./my_mapping.json
 ```
 
-# Data type
+## Data type
 >데이터를 집어넣고 성능 테스트를 하던 중 nested datatype에 대한 어려움을 겪어, 공부하고 정리도 할 겸 공식 문서를 번역해 보았다.(https://www.elastic.co/guide/en/elasticsearch/reference/current/nested.html)
-## Nested 타입
+### Nested 타입
 Nested 타입은 object array 형태의 데이터를 인덱싱하기 위한 타입이다. Object array를 nested 타입으로 저장하면 array의 각 요소를 독립적으로 query 할 수 있다.
-### array 는 어떻게 flattened 되나?
+#### array 는 어떻게 flattened 되나?
 Object안의 array는 우리가 생각하는 것 처럼 동작하지 않는다. Lucene은 inner object의 개념이 없기 떄문에 Elasticsearch는 아래 예시와 같이 hierarchy가 있는 데이터를 name과 value의 간단한 리스트 형태로 변환한다.
 ```json
 PUT my_index/_doc/1
@@ -40,7 +40,7 @@ would be transformed internally into a document that looks more like this:
 `user.first`와 `user.last` 필드는 multi-value field로 flattened 되고, **`alice`와 `white`간의 관계는 없어진다.** 따라서 예상과 다른 query 결과를 얻게된다.
 
 
-### array object를 nested필드로 저장하기
+#### array object를 nested필드로 저장하기
 만약 object 배열을 인덱스 하고 배열의 각 인자 간 독립성을 유지하고 싶다면, nested datatype을 사용하면 된다.
 Nested datatype은 내부적으로 object datatype과 다르게, 배열의 각 object를 분리된 hidden document로 index 한다. 때문에 각 nested object는 nested query를 이용하여 독립적으로 쿼리될 수 있다.
 ```json
@@ -122,7 +122,7 @@ Nested document는:
 >For instance, if a string field within a nested document has index_options set to offsets to allow use of the postings during the highlighting, these offsets will not be available during the main highlighting phase. Instead, highlighting needs to be performed via nested inner hits. The same consideration applies when loading fields during a search through docvalue_fields or stored_fields.
 >
 
-### Nested fields의 parameter
+#### Nested fields의 parameter
 Nested field에는 아래의 인자를 사용할 수 있다:
 
 -|-
@@ -130,7 +130,7 @@ Nested field에는 아래의 인자를 사용할 수 있다:
 dynamic|Whether or not new properties should be added dynamically to an existing nested object. Accepts true (default), false and strict.
 properties|The fields within the nested object, which can be of any datatype, including nested. New properties may be added to an existing nested object.
 
-### Nested mappings and objects 의 개수 제한
+#### Nested mappings and objects 의 개수 제한
 앞서 언급한 것 처럼, 각각의 nested object는 별도의 문서로 hood 아래 저장된다.(indexed as a separate document under the hood). 위 예시를 이어서 설명하면, 만약 1개의 document가 100 개의 user object를 가지고 있으면, 101개(parent document 1개, nested document 100개)의 Lucene document가 생성된다. Nested object 매핑과 관련된 비용으로 인한 성능 문제를 방지하기 위해 Elasticsearch는 nested field 개수에 대한 제한을 둔다:
 * index.mapping.nested_fields.limit
     * The nested type should only be used in special cases, when arrays of objects need to be queried independently of each other. To safeguard against poorly designed mappings, this setting limits the number of unique nested types per index. 위 예제에서 nested field 개수는 1 이다. 기본 설정값은 50이다.

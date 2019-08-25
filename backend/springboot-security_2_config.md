@@ -1,5 +1,5 @@
-# 사용 예시
-## 1. Config 파일.
+# Spring security 사용 예시 - config
+## Config 파일
 ```java
 @Configuration
 @EnableWebSecurity
@@ -58,7 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         // 로그인 인증을 위한 등록
         auth.userDetailsService(authService).passwordEncoder(authService.passwordEncoder());
-        // rest api 접근을 위한 등록
+        // rest api 접근 인증을 위한 등록
         auth.authenticationProvider(jwtAuthenticationProvider);
     }
 
@@ -69,11 +69,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 }
 ```
-### 메서드 설명
+## 설명
 1. buildJwtAuthenticationFilter
     접근자|리턴 타입|파라미터|exception
     -|-|-|-
-    protected|JwtAuthenticationFilter|`List<String>` pathsToSkip, `String` pattern|Exception
+    protected|JwtAuthenticationFilter|`List<String>` pathsToSkip<br>`String` pattern|Exception
 
     * 역할 : jwt 인증 필터 생성하여 반환
 
