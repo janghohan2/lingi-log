@@ -1,4 +1,6 @@
 # Spring security 사용 예시 - config
+## 역할
+Spring Security를 사용하기 위한 설정을 할 수 있다.
 ## Config 파일
 ```java
 @Configuration

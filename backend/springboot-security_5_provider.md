@@ -1,4 +1,6 @@
 # Spring Security 사용예시 - provider
+## 역할
+Authentication에 대한 인증 작업을 한다.
 ## provider 소스
 ```java
 

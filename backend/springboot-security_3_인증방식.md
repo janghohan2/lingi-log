@@ -1,4 +1,5 @@
 # Spring security 사용 예시 - 인증방식
+## 역할
 SpringSecurity로 REST 로그인을 구현하기 위해 JWT를 사용하였다.
 ## 관련 파일
 관련 파일은 아래 세 가지 이다.

@@ -5,6 +5,8 @@
     * 객체를 생성하고 알맞게 생성해야 한다.
     * 개발자가 컨트롤 하기 불가능한 외부 라이브러리 들을 Bean 으로 등록하고 싶은 경우에 사용
         * 예를 들어 ObjectMapper 의 경우 ObjectMapper 클래스에 @Component를 선언할 순 없으니 ObjectMapper의 인스턴스를 생성하는 매서드를 만들고, 해당 메소드에 @Bean을 선언하여 Bean으로 등록한다.
+    * bean?
+        * 스프링 IOC 컨테이너가 관리하는 객체.
 ## Controller, RestController
 * @Controller
     * 스프링 MVC 에서 컨트롤러로 사용한다.
@@ -81,11 +83,13 @@ The major difference between these stereotypes is they are used for different cl
 연결방식2|@Autowired @Qualifier('이름')|@Inject @Qualifier('이름')|
 * @Autowired
     * 객체를 자동으로 주입하는 어노테이션
+    * 어떤 빈을 주입할 지 선택지가 명확하니 컨테이너가 아라서 resolve 해달라는 의미/
     1. 해당 타입의 빈 객체가 존재하지 않는 경우 예외 처리
         * @Autowired(required=false)
         * 기본 : @Autowired(required=true)
     1. 동일한 타입의 빈 객체가 두 개 이상 존재하는 경우 예외 처리
         * @Qualifier("설정파일에서 지정한 값")으로 지정
+
 * @Resource(name="swMonitoringService") private SwMonitoringService service;
 
 ## Configuration

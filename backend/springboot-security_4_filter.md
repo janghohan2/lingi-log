@@ -1,4 +1,5 @@
 # Spring security 사용 예시 - filter
+## 역할
 spring security로 보호되는 uri(내 소스의 경우 /api/**)로 접근하는 request에 대해 
 * authenticationManager를 통해 jwt token을 검증한다.
 ## filter 소스 예시
