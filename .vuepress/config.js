@@ -30,16 +30,19 @@ module.exports = {
                 collapsable: false,
                 children: [{
                         title: 'Spring Security',
-                        collapsable: false,
+                        collapsable: true,
                         children: [
                             'springboot-security',
                             'springboot-security_2_config',
                             'springboot-security_3_인증방식',
                             'springboot-security_4_filter',
                             'springboot-security_5_provider',
+                            'springboot-security_6_entrypoint',
+                            'springboot-security_7_exceptions'
                         ]
                     },
-                    'springboot-annotation'
+                    'springboot-annotation',
+                    'springboot-jpa'
                 ]
             }, {
                 title: 'Elastic Search',

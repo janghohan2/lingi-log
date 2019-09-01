@@ -1,4 +1,4 @@
-# Spring Security 사용예시 - exceptions
+# Spring Security - exceptions
 ## 역할
 인증 과정 중 발생할 수 있는 Exception을 정의한다.
 ## exceptions 소스

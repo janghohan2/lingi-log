@@ -1,4 +1,4 @@
-# Spring Security 사용예시 - entry point
+# Spring Security - entry point
 ## 역할
 인증 과정 중 예외가 발생하면 EntryPoint에서 error code를 세팅해 준다.
 ## entry point 소스

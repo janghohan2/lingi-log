@@ -1,7 +1,10 @@
 # Backend
 Backend 관련 기술을 정리하였다.
-## 순서
+## 내용
 ### Spring Boot
+* Spring Security
+* Spring Annotations
+* Spring JPA
 ### Elastic Search
 * Elasticsearch 세팅 정리
 * 매핑
