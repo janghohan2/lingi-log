@@ -89,6 +89,24 @@ The major difference between these stereotypes is they are used for different cl
         * 기본 : @Autowired(required=true)
     1. 동일한 타입의 빈 객체가 두 개 이상 존재하는 경우 예외 처리
         * @Qualifier("설정파일에서 지정한 값")으로 지정
+    * 사용 방식
+        * 생성자주입    
+            * 순환참조 대해 애플리케이션 구동시점에 인지 가능
+            *  필드를 final 로 선언가능 (불변)
+                * final 선언 필드는 생성자에서 초기화 해주지 않으면 컴파일 에러
+            * 테스트코드 작성시 다양한 구현체 주입가능
+                * DI 는 인터페이스 타입으로 인자를 받고, 해당 인터페이스의 구현체라면 모두 받을 수 있는데, 생성자 주입으로 서비스 메소드를 짜두면 단위테스트 할때 해당 인터페이스의 다양한 구현체를 생성자를 통해서 넘겨 줄 수 있지만, 필드 주입으로 짜면 객체생성시 주입할 방법이 없기 때문에 NullPointerException 떨어짐
+            ```java
+            private SwMonitoringService swMonitoringService;
+
+            @Autowired
+            MonitoringController(SwMonitoringService swMonitoringService){
+                this.swMonitoringService = swMonitoringService;
+            }
+            ```
+        * 필드 주입
+            * 위에 기능 다 안됨.
+
 
 * @Resource(name="swMonitoringService") private SwMonitoringService service;
 
