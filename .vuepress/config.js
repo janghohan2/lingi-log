@@ -12,7 +12,7 @@ module.exports = {
             { "text": "Frontend", "link": "/frontend/", "position": "left", "external": false },
             { "text": "Linux", "link": "/linux/", "position": "left", "external": false },
             { "text": "DB", "link": "/db/", "position": "left", "external": false },
-            // { "text": "Algorithm", "link": "/algorithm/", "position": "left", "external": false },
+            { "text": "Algorithm", "link": "/algorithm/", "position": "left", "external": false },
             { "text": "About", "link": "/about", "position": "right", "external": false }
         ],
         lastUpdated: 'Last Updated',
@@ -20,7 +20,10 @@ module.exports = {
             '/backend/': [{
                 title: 'Spring Boot',
                 collapsable: false,
-                children: [{
+                children: [
+                    'springboot-annotation',
+                    'springboot-jpa',
+                    {
                         title: 'Spring Security',
                         collapsable: true,
                         children: [
@@ -32,9 +35,8 @@ module.exports = {
                             'springboot-security_6_entrypoint',
                             'springboot-security_7_exceptions'
                         ]
-                    },
-                    'springboot-annotation',
-                    'springboot-jpa'
+                    }
+
                 ]
             }, {
                 title: 'Elastic Search',
@@ -80,17 +82,21 @@ module.exports = {
                     //_db
                 ]
             }],
-            // '/algorithm/': [{
-            //     title: 'Algorithm',
-            //     collapsable: false,
-            //     children: [
-            //         'algorithm-1_boj_1003',
-            //         'algorithm-2_boj_dp_1937',
-            //         'algorithm-3_kakao_2018_2_1',
-            //         'algorithm-index',
-            //         //_algorithm
-            //     ]
-            // }],
+            '/algorithm/': [{
+                title: 'Algorithm',
+                collapsable: false,
+                children: [{
+                        title: 'Leet Code',
+                        collapsable: true,
+                        children: [
+                            'algorithm_leet_46-50',
+                            'algorithm_leet_51-60'
+                        ]
+                    }
+
+                    //_algorithm
+                ]
+            }],
             // fallback
             '/': []
         }
