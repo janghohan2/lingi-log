@@ -81,31 +81,30 @@ The major difference between these stereotypes is they are used for different cl
 ||스프링 전용|자바에서 지원|자바에서 지원
 연결방식|타입에 맞춰 연결|타입에 맞춰 연결|이름으로 연결
 연결방식2|@Autowired @Qualifier('이름')|@Inject @Qualifier('이름')|
-* @Autowired
-    * 객체를 자동으로 주입하는 어노테이션
-    * 어떤 빈을 주입할 지 선택지가 명확하니 컨테이너가 아라서 resolve 해달라는 의미/
-    1. 해당 타입의 빈 객체가 존재하지 않는 경우 예외 처리
-        * @Autowired(required=false)
-        * 기본 : @Autowired(required=true)
-    1. 동일한 타입의 빈 객체가 두 개 이상 존재하는 경우 예외 처리
-        * @Qualifier("설정파일에서 지정한 값")으로 지정
-    * 사용 방식
-        * 생성자주입    
-            * 순환참조 대해 애플리케이션 구동시점에 인지 가능
-            *  필드를 final 로 선언가능 (불변)
-                * final 선언 필드는 생성자에서 초기화 해주지 않으면 컴파일 에러
-            * 테스트코드 작성시 다양한 구현체 주입가능
-                * DI 는 인터페이스 타입으로 인자를 받고, 해당 인터페이스의 구현체라면 모두 받을 수 있는데, 생성자 주입으로 서비스 메소드를 짜두면 단위테스트 할때 해당 인터페이스의 다양한 구현체를 생성자를 통해서 넘겨 줄 수 있지만, 필드 주입으로 짜면 객체생성시 주입할 방법이 없기 때문에 NullPointerException 떨어짐
-            ```java
-            private SwMonitoringService swMonitoringService;
+### @Autowired
+* 객체를 자동으로 주입하는 어노테이션
+* 어떤 빈을 주입할 지 선택지가 명확하니 컨테이너가 아라서 resolve 해달라는 의미/
+1. 해당 타입의 빈 객체가 존재하지 않는 경우 예외 처리
+    * @Autowired(required=false)
+    * 기본 : @Autowired(required=true)
+1. 동일한 타입의 빈 객체가 두 개 이상 존재하는 경우 예외 처리
+    * @Qualifier("설정파일에서 지정한 값")으로 지정
+#### 사용법
+* 필드 주입
+* setter
+* 생성자
+    * 순환 참조에 의한 stack overflow 방지 가능
+    * null pointer exception 방지 가능(setter 사용하는 경우, set 되기 전, 객체를 사용하면 null pointer exception 발생 가능.)
+    ```java
+    public class MyController {
+        private MyService myService;
 
-            @Autowired
-            MonitoringController(SwMonitoringService swMonitoringService){
-                this.swMonitoringService = swMonitoringService;
-            }
-            ```
-        * 필드 주입
-            * 위에 기능 다 안됨.
+        @Autowired // 인젝션 할 필드가 한개 라면 생략 가능.
+        public MyController(MyService myService){
+            this.myService = myService;
+        }
+    }
+    ```
 
 
 * @Resource(name="swMonitoringService") private SwMonitoringService service;
@@ -119,6 +118,3 @@ The major difference between these stereotypes is they are used for different cl
 ## EnableWebSecurity
 * @EnableWebSecurity
     * WebSecurityConfigureAdapter는 Spring Security 기능을 사용할 때 함께 사용한다.
-
-
-

@@ -12,18 +12,10 @@ module.exports = {
             { "text": "Frontend", "link": "/frontend/", "position": "left", "external": false },
             { "text": "Linux", "link": "/linux/", "position": "left", "external": false },
             { "text": "DB", "link": "/db/", "position": "left", "external": false },
-            { "text": "Algorithm", "link": "/algorithm/", "position": "left", "external": false },
+            // { "text": "Algorithm", "link": "/algorithm/", "position": "left", "external": false },
             { "text": "About", "link": "/about", "position": "right", "external": false }
         ],
         lastUpdated: 'Last Updated',
-        // algolia: {
-        //     apiKey: '7055df7452cbcc1e86f33eb175f3d949',
-        //     appId: '376LIH16NX',
-        //     indexName: 'getstarted_actors',
-        //     algoliaOptions: {
-        //         hitsPerPage: 10,
-        //     }
-        // },
         sidebar: {
             '/backend/': [{
                 title: 'Spring Boot',
@@ -88,17 +80,17 @@ module.exports = {
                     //_db
                 ]
             }],
-            '/algorithm/': [{
-                title: 'Algorithm',
-                collapsable: false,
-                children: [
-                    'algorithm-1_boj_1003',
-                    'algorithm-2_boj_dp_1937',
-                    'algorithm-3_kakao_2018_2_1',
-                    'algorithm-index',
-                    //_algorithm
-                ]
-            }],
+            // '/algorithm/': [{
+            //     title: 'Algorithm',
+            //     collapsable: false,
+            //     children: [
+            //         'algorithm-1_boj_1003',
+            //         'algorithm-2_boj_dp_1937',
+            //         'algorithm-3_kakao_2018_2_1',
+            //         'algorithm-index',
+            //         //_algorithm
+            //     ]
+            // }],
             // fallback
             '/': []
         }
