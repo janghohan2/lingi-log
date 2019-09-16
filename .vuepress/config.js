@@ -16,19 +16,14 @@ module.exports = {
             { "text": "About", "link": "/about", "position": "right", "external": false }
         ],
         lastUpdated: 'Last Updated',
-        // algolia: {
-        //     apiKey: '7055df7452cbcc1e86f33eb175f3d949',
-        //     appId: '376LIH16NX',
-        //     indexName: 'getstarted_actors',
-        //     algoliaOptions: {
-        //         hitsPerPage: 10,
-        //     }
-        // },
         sidebar: {
             '/backend/': [{
                 title: 'Spring Boot',
                 collapsable: false,
-                children: [{
+                children: [
+                    'springboot-annotation',
+                    'springboot-jpa',
+                    {
                         title: 'Spring Security',
                         collapsable: true,
                         children: [
@@ -40,9 +35,8 @@ module.exports = {
                             'springboot-security_6_entrypoint',
                             'springboot-security_7_exceptions'
                         ]
-                    },
-                    'springboot-annotation',
-                    'springboot-jpa'
+                    }
+
                 ]
             }, {
                 title: 'Elastic Search',
@@ -91,11 +85,15 @@ module.exports = {
             '/algorithm/': [{
                 title: 'Algorithm',
                 collapsable: false,
-                children: [
-                    'algorithm-1_boj_1003',
-                    'algorithm-2_boj_dp_1937',
-                    'algorithm-3_kakao_2018_2_1',
-                    'algorithm-index',
+                children: [{
+                        title: 'Leet Code',
+                        collapsable: true,
+                        children: [
+                            'algorithm_leet_46-50',
+                            'algorithm_leet_51-60'
+                        ]
+                    }
+
                     //_algorithm
                 ]
             }],
