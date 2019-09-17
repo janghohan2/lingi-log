@@ -1,7 +1,7 @@
 # oauth 알아보기
 ## OAuth를 구성하는 네 가지 Roles
 * Resource Owner : 일반 사용자
-* Resource Server : 권한 검증을 한 후 적절한 결과 응답. REST API
+* Resource Server : 권한 검증을 한 후 적절한 결과 응답. REST API 서버
 * Client Application : `Resource Owner`의 `Protected Resource`에 접근 요청을 하는 Application. Web이나 App인데 Web의 경우 브라우저에서 돌아가는 Front단으로 이해했다.
 * Authorization Server : client가 성공적으로 access token을 발급 받은 후 resource를 인증하고 권한을 부여함.
 ## Grant Type
@@ -13,8 +13,20 @@ In OAuth 2.0, the term "grant type" refers to the way an application gets an acc
 * Client Credentials Grant Type : 클라이언트 자격 증명 타입
 ### Authorization Code Grant Type
 Web이나 mobile apps에서 주로 사용하는 방식 이다.(Leet code에서 Github 로그인을 할 때 이 방식을 사용함.) \
-Access token과 Refresh token을 얻기 위한 방법. confidential clients에 최적화. 이는 redirection-based 흐름이므로 client는 resource owner의 user-agent(일반적으로 웹 브라우저) 와 상호 작용할 수 있어야 하며 authorization server 서버로부터 수신 요청을 수신할 수 있어야 한다.
+Access token과 Refresh token을 얻기 위한 방법. confidential clients에 최적화. 이는 redirection-based 흐름이므로 client는 resource owner의 user-agent(일반적으로 웹 브라우저) 와 상호 작용할 수 있어야 하며 authorization server 서버로부터 수신 요청을 수신할 수 있어야 한다. 아래와 같은 요청을 보낸다.
+```curl
+e.g.
+https://authorization-server.com/auth?response_type=code&client_id=29352915982374239857&redirect_uri=https%3A%2F%2Fexample-app.com%2Fcallback&scope=create+delete&state=xcoiv98y2kd22vusuye3kch
+실제 사례
+https://github.com/login?client_id=6efe458dfe2230acceea&return_to=/login/oauth/authorize?client_id=6efe458dfe2230acceea&redirect_uri=https://leetcode.com/accounts/github/login/callback/&response_type=code&scope=user:email&state=xVOutB1oomD6
+```
 
+[출처](https://developer.okta.com/blog/2018/04/10/oauth-authorization-code-grant-type)
+* response_type=code - This tells the authorization server that the application is initiating the authorization code flow.
+* client_id - The public identifier for the application, obtained when the developer first registered the application.
+* redirect_uri - Tells the authorization server where to send the user back to after they approve the request.
+* scope - One or more space-separated strings indicating which permissions the application is requesting. The specific OAuth API you’re using will define the scopes that it supports.
+* state - The application generates a random string and includes it in the request. It should then check that the same value is returned after the user authorizes the app. This is used to prevent CSRF attacks.
 ![Authrization Code](/auth_code_flow.png)
 ```
             +----------+
