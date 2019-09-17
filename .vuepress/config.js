@@ -23,6 +23,7 @@ module.exports = {
                 children: [
                     'springboot-annotation',
                     'springboot-jpa',
+                    'pojo-javabeans-vo-dto',
                     {
                         title: 'Spring Security',
                         collapsable: true,
