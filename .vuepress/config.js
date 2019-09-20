@@ -50,6 +50,13 @@ module.exports = {
                     'es_6_alias'
 
                 ]
+            }, {
+                title: 'OAuth2',
+                collapsable: false,
+                children: [
+                    'oauth-1_overview',
+                    'oauth-2_grant_type'
+                ]
             }],
             '/frontend/': [{
                 title: 'Angular',
