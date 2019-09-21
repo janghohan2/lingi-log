@@ -21,20 +21,20 @@ module.exports = {
                 title: 'Spring Boot',
                 collapsable: false,
                 children: [
-                    'springboot-annotation',
-                    'springboot-jpa',
-                    'pojo-javabeans-vo-dto',
+                    'springboot/annotation',
+                    'springboot/jpa',
+                    'springboot/pojo-javabeans-vo-dto',
                     {
                         title: 'Spring Security',
                         collapsable: true,
                         children: [
-                            'springboot-security',
-                            'springboot-security_2_config',
-                            'springboot-security_3_인증방식',
-                            'springboot-security_4_filter',
-                            'springboot-security_5_provider',
-                            'springboot-security_6_entrypoint',
-                            'springboot-security_7_exceptions'
+                            'springboot/security/1_index',
+                            'springboot/security/2_config',
+                            'springboot/security/3_인증방식',
+                            'springboot/security/4_filter',
+                            'springboot/security/5_provider',
+                            'springboot/security/6_entrypoint',
+                            'springboot/security/7_exceptions'
                         ]
                     }
 
@@ -43,19 +43,20 @@ module.exports = {
                 title: 'Elastic Search',
                 collapsable: false,
                 children: [
-                    'es_1_세팅',
-                    'es_2_매핑',
-                    'es_4_DB와 비교',
-                    'es_5_성능최적화',
-                    'es_6_alias'
+                    'es/1_세팅',
+                    'es/2_매핑',
+                    'es/4_DB와 비교',
+                    'es/5_성능최적화',
+                    'es/6_alias'
 
                 ]
             }, {
                 title: 'OAuth2',
                 collapsable: false,
                 children: [
-                    'oauth-1_overview',
-                    'oauth-2_grant_type'
+                    'oauth2/1_overview',
+                    'oauth2/2_grant_type',
+                    'oauth2/3_적용'
                 ]
             }],
             '/frontend/': [{
