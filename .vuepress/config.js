@@ -13,6 +13,7 @@ module.exports = {
             { "text": "Linux", "link": "/linux/", "position": "left", "external": false },
             { "text": "DB", "link": "/db/", "position": "left", "external": false },
             { "text": "Algorithm", "link": "/algorithm/", "position": "left", "external": false },
+            { "text": "Design Pattern", "link": "/designpattern/", "position": "left", "external": false },
             { "text": "About", "link": "/about", "position": "right", "external": false }
         ],
         lastUpdated: 'Last Updated',
@@ -104,6 +105,13 @@ module.exports = {
                     }
 
                     //_algorithm
+                ]
+            }],
+            '/designpattern/': [{
+                title: '디자인 패턴',
+                collapsable: false,
+                children: [
+                    '1_observer'
                 ]
             }],
             // fallback
