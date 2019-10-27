@@ -12,12 +12,34 @@ module.exports = {
             { "text": "Frontend", "link": "/frontend/", "position": "left", "external": false },
             { "text": "Linux", "link": "/linux/", "position": "left", "external": false },
             { "text": "DB", "link": "/db/", "position": "left", "external": false },
-            { "text": "Algorithm", "link": "/algorithm/", "position": "left", "external": false },
-            { "text": "Design Pattern", "link": "/designpattern/", "position": "left", "external": false },
             { "text": "About", "link": "/about", "position": "right", "external": false }
         ],
         lastUpdated: 'Last Updated',
         sidebar: {
+            '/study/': [{
+                title: 'Design Pattern',
+                collapsable: false,
+                children: [
+                    'designpattern/1_observer'
+                ]
+            }, {
+                title: 'Algorithm',
+                collapsable: false,
+                children: [{
+                    title: 'Leet Code',
+                    collapsable: true,
+                    children: [
+                        'algorithm/algorithm_leet_46-50',
+                        'algorithm/algorithm_leet_51-60'
+                    ]
+                }]
+            }, {
+                title: '깨끗한 코드',
+                collapsable: false,
+                children: [
+                    'refactoring/intro'
+                ]
+            }],
             '/backend/': [{
                 title: 'Spring Boot',
                 collapsable: false,
@@ -90,28 +112,6 @@ module.exports = {
                 collapsable: false,
                 children: [
                     //_db
-                ]
-            }],
-            '/algorithm/': [{
-                title: 'Algorithm',
-                collapsable: false,
-                children: [{
-                        title: 'Leet Code',
-                        collapsable: true,
-                        children: [
-                            'algorithm_leet_46-50',
-                            'algorithm_leet_51-60'
-                        ]
-                    }
-
-                    //_algorithm
-                ]
-            }],
-            '/designpattern/': [{
-                title: '디자인 패턴',
-                collapsable: false,
-                children: [
-                    '1_observer'
                 ]
             }],
             // fallback

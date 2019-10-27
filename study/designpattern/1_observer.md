@@ -44,7 +44,7 @@ Observer 패턴 구현을 위한 클래스 다이어그램은 아래와 같다.\
 Observer 인터페이스만 구현한다면 무엇이든 옵저버 클래스가 될 수 있다. 각 옵저버는 특정 주제 객체에 등록 해서 연락을 받을 수 있다.
 
 ## Obsserver 패턴을 구현한 라이브러리
-* ### java.util 패키지 Observable 클래스
+* ### java.util 패키지 Observer 인터페이스와 Observable 클래스
 * ### JavaBeans
 * ### Java Swing
 * ### ReactiveX(rxjs, rxjava ... [링크](http://reactivex.io/))
