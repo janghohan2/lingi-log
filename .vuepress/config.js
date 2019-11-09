@@ -20,7 +20,8 @@ module.exports = {
                 title: 'Design Pattern',
                 collapsable: false,
                 children: [
-                    'designpattern/1_observer'
+                    'designpattern/1_observer',
+                    'designpattern/2_proxy'
                 ]
             }, {
                 title: 'Algorithm',
