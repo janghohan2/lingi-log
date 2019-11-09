@@ -3,7 +3,7 @@
 ## 내용
 ### Design Pattern
 * Observer
-* Proxy(작성중)
+* Proxy
 ### Algorithm
 #### Leet code
 * 46 ~ 50

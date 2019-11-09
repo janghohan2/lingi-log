@@ -38,7 +38,7 @@ module.exports = {
                 title: '깨끗한 코드',
                 collapsable: false,
                 children: [
-                    'refactoring/intro'
+                    'refactoring/1_intro'
                 ]
             }],
             '/backend/': [{
