@@ -1,6 +1,5 @@
 # Proxy Pattern
-Proxy패턴은 Structural Design Pattern(클래스나 객체를 조합해 더 큰 구조를 만드는 패턴)으로, 원본 객체에 대한 요청 앞, 뒤로 무언가를 수행할 수 있도록 해 준다.
-https://refactoring.guru/design-patterns/proxy
+Proxy패턴은 Structural Design Pattern(클래스나 객체를 조합해 더 큰 구조를 만드는 패턴)으로, 원본 객체에 대한 요청 앞, 뒤로 무언가를 수행할 수 있도록 해 준다. 출처는 [이곳](https://refactoring.guru/design-patterns/proxy) 이다.
 ## 필요성에 대해.
 왜 객체에 대한 접근을 제어해야 할까? 예를 들어 보자.\
 많은 양의 시스템 리소스를 잡아먹는 방대한 양의 Object가 있다고 해 보자. 이 객체에 접근하는 Client들은 이 객체를 항상 필요로 하는 것이 아니라 가끔씩 필요로 한다.\
@@ -133,3 +132,6 @@ class Application is
 ### 단점
 * 새 클래스가 많이 생성, 사용되기 때문에 코드가 복잡해 질 수 있다.
 * Service에서의 응답이 지연될 수 있다.
+
+----------
+출처 : [https://refactoring.guru/design-patterns/proxy](https://refactoring.guru/design-patterns/proxy)
