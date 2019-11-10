@@ -38,8 +38,19 @@ module.exports = {
                 title: '깨끗한 코드',
                 collapsable: false,
                 children: [
-                    'refactoring/1_intro'
+                    'refactoring/1_intro',
+                    'refactoring/2_목표설명'
                 ]
+            }, {
+                title: '책',
+                collapsable: false,
+                children: [{
+                    title: '오브젝트',
+                    collapsable: false,
+                    children: [
+                        'book/object/2_객체지향프로그래밍'
+                    ]
+                }]
             }],
             '/backend/': [{
                 title: 'Spring Boot',
