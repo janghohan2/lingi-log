@@ -4,6 +4,7 @@
 ### Design Pattern
 * Observer
 * Proxy
+* Template Method
 ### Algorithm
 #### Leet code
 * 46 ~ 50
@@ -14,3 +15,4 @@
 ### 책
 #### 오브젝트
 * 2장. 객체지향 프로그래밍
+* 3장. 역할, 책임, 협력
