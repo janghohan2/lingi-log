@@ -1,6 +1,6 @@
 module.exports = {
     title: "Lingi-log",
-    description: "Blog About Study",
+    description: "개발 관련 이것 저것",
     base: "/",
     // theme: "@vuepress/vue",
     themeConfig: {
