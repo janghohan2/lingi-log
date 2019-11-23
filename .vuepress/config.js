@@ -48,8 +48,9 @@ module.exports = {
                     title: '오브젝트',
                     collapsable: false,
                     children: [
-                        'book/object/2_객체지향프로그래밍',
-                        'book/object/3_역할-책입-협력'
+                        'book/object/2-객체지향프로그래밍',
+                        'book/object/3-역할_책임_협력',
+                        'book/object/4-설계_품질과_트레이드오프'
                     ]
                 }]
             }],
