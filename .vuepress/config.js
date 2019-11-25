@@ -39,7 +39,8 @@ module.exports = {
                 collapsable: false,
                 children: [
                     'refactoring/1_intro',
-                    'refactoring/2_목표설명'
+                    'refactoring/2_목표설명',
+                    'refactoring/3_적용'
                 ]
             }, {
                 title: '책',
