@@ -97,7 +97,8 @@ module.exports = {
                 children: [
                     'oauth2/1_overview',
                     'oauth2/2_grant_type',
-                    'oauth2/3_적용'
+                    'oauth2/3_적용',
+                    'oauth2/4_적용2'
                 ]
             }],
             '/frontend/': [{
