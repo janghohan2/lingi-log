@@ -40,7 +40,8 @@ module.exports = {
                 children: [
                     'refactoring/1_intro',
                     'refactoring/2_목표설명',
-                    'refactoring/3_적용'
+                    'refactoring/3_적용',
+                    'refactoring/4_적용2'
                 ]
             }, {
                 title: '책',
@@ -96,9 +97,7 @@ module.exports = {
                 collapsable: false,
                 children: [
                     'oauth2/1_overview',
-                    'oauth2/2_grant_type',
-                    'oauth2/3_적용',
-                    'oauth2/4_적용2'
+                    'oauth2/2_grant_type'
                 ]
             }],
             '/frontend/': [{
