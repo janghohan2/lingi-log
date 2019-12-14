@@ -5,15 +5,15 @@
 신문을 구독하는 매커니즘을 예로 들어 보면\
 출판사가 있고, 영재, 우영, 민영 은 출판사를 구독하고 있고, 장호는 구독하고 있지 않다. 
 * 출판사로부터 news가 생성되면 춢판사는 구독자 리스트에 있는 구독자(Observer)에게 news를 전달한다.
-![init](/observer_init.png)
+![init](https://raw.githubusercontent.com/lingi-log/lingi-log/master/assets/images/study/designpattern/observer_init.png)
 * 장호도 신문을 보고 싶어 출판사에 구독 신청을 한다.
-![subscribe](/observer_subscribe.png)
+![subscribe](https://raw.githubusercontent.com/lingi-log/lingi-log/master/assets/images/study/designpattern/observer_subscribe.png)
 * 이제 장호도 출판사를 구독하고 있으므로 news를 전달받는다.
-![subscribe_result](/observer_subscribe_result.png)
+![subscribe_result](https://raw.githubusercontent.com/lingi-log/lingi-log/master/assets/images/study/designpattern/observer_subscribe_result.png)
 * news를 보다 실증이 나자 장호는 출판사를 unsubscribe 한다.
-![unsubscribe](/observer_unsubscribe.png)
+![unsubscribe](https://raw.githubusercontent.com/lingi-log/lingi-log/master/assets/images/study/designpattern/observer_unsubscribe.png)
 * 출판사는 news가 생성되도 더 이상 장호 신문을 전달하지 않는다.
-![init](/observer_init.png)
+![init](https://raw.githubusercontent.com/lingi-log/lingi-log/master/assets/images/study/designpattern/observer_init.png)
 
 여기서 몇 가지 개념을 대응시켜 보면\
 &nbsp;&nbsp;&nbsp;출판사 : Subject\
@@ -32,7 +32,7 @@
 주제가 옵저버에 대해 아는 것은 옵저버가 특정 인터페이스(Observer 인터페이스)를 구현한다는 것 뿐. Observer 인터페이스의 구상 클래스가 무엇인지, 옵저버가 무엇을 하는 지 에 대해서는 알 필요가 없다.
 ## 구현 방법
 Observer 패턴 구현을 위한 클래스 다이어그램은 아래와 같다.\
-![class_diagram](/observer_class_diagram.png)
+![class_diagram](https://raw.githubusercontent.com/lingi-log/lingi-log/master/assets/images/study/designpattern/observer_class_diagram.png)
 
 * ### Subject 인터페이스
 주제를 나타내는 인터페이스. 객체에서 옵저버로 등록하거나 옵저버 목록에서 탈퇴하고 싶을 때 이 인터페이스에 있는 메소드 사용.

@@ -13,7 +13,7 @@ Proxy 패턴을 적용해 보자.
 
 이렇게 함으로서 Origin Service Object 의 변경 없이 Origin Service Object의 로직을 실행하기 전, 후에 무언가 필요한 작업을 실행시킬 수 있다.
 ## Proxy 패턴의 구조
-![proxy패턴의구조](/proxy_2.jpeg)
+![proxy패턴의구조](https://raw.githubusercontent.com/lingi-log/lingi-log/master/assets/images/study/designpattern/proxy_2.jpeg)
 1. `ServiceInterface`는 Service의 인터페이스를 정의한다. Proxy는 Service Object처럼 동작하기 위해 이 인터페이스를 구현해야 한다.
 2. `Service`는 필요한 비지니스 로직을 제공한다.
 3. `Proxy`클래스에는 service object를 가리키는 reference field가 있다. `Proxy`가 특정 작업(lazy initialization, logging, access control, caching 등)을 마친 뒤 request를 service object에 전달한다.\
@@ -21,7 +21,7 @@ Proxy 패턴을 적용해 보자.
 4. 클라이언트는 동일한 인터페이스를 통해 서비스와 프록시 모두에서 작동해야한다. 이렇게하면 서비스 객체가 필요한 모든 코드에 프록시를 전달할 수 있다.
 ## 3rd-party 라이브러리와 Proxy 예시
 Proxy로 어떻게 3rd-party 라이브러리의 lazy initialization과 caching을 구현하는 지 보여주는 예시 이다.
-![proxy와3rdpartylib](/proxy_3.jpeg)
+![proxy와3rdpartylib](https://raw.githubusercontent.com/lingi-log/lingi-log/master/assets/images/study/designpattern/proxy_3.jpeg)
 Library는 video download 클래스를 제공한다. 하지만 이것은 매우 비효율적이다. 만약 Client application이 동일한 video를 여러 번 요청하면, 라이브러리는 그 파일을 캐싱해놓고 재사용하는 것이 아니라 계속해서 다운로드 한다.\
 Proxy클래스는 원본 라이브러리와 같은 인터페이스를 구현하고 있으며 모든 작업 요청을 위임한다. 하지만 Client가 동일한 파일을 반복적으로 요청한다면, cache된 파일을 내려준다.\
 아래의 psuedocode를 보고 이해해 보자.

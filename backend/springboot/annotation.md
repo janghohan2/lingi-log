@@ -33,9 +33,9 @@
         }
         ```
         위 두 코드는 동일한 동작을 한다.
-    ![ㅁ](/spring_동작방식_1.png)
+    ![ㅁ](https://raw.githubusercontent.com/lingi-log/lingi-log/master/assets/images/backend/springboot/spring_동작방식_1.png)
     * 위 그림에서 알 수 있듯이, Spring은 요청이 오면 view resolver를 통해 사용자에게 text/html 응답을 보내주게 된다.
-    ![ㅁ](/spring_동작방식_2.png)
+    ![ㅁ](https://raw.githubusercontent.com/lingi-log/lingi-log/master/assets/images/backend/springboot/spring_동작방식_2.png)
     * 그에 반해 RestController에서 return되는 값은 위 그림애서 처럼 HttpResponsebody에 직접 쓰여지게 된다.
 ### 차이점?
 * @Controller는 View페이지를 반환하지만, @RestController는 객체를 반환하고, 그 객체는 application/json 형식의 HttpResponseBody에 직접 작성된다.
