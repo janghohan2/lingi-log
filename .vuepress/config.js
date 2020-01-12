@@ -55,6 +55,7 @@ module.exports = {
                         'book/object/4-설계_품질과_트레이드오프',
                         'book/object/5-책임_할당하기',
                         'book/object/6-메시지와_인터페이스',
+                        'book/object/7-객체_분해',
                         'book/object/8-의존성_관리하기'
                     ]
                 }]
