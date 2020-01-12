@@ -110,13 +110,23 @@ class Application is
         manager.reactOnUserInput()
 ```
 
-## 사용법
+## 적용 분야
 ### Lazy Initialization
+객체를 앱 실행 시 생성하는 것이 아니라 객체가 필요할 때(호출됐을 때) 생성할 수 있다.
 ### Access Control
+중요한 자원에 접근할 때 인가받은 사용자만이 접근할 수 있도록 접근을 제어할 수 있다.
 ### Local execution of a remote service
+원격에 있는 Service를 실행해야 하는 경우 Proxy는 네트워크를 통해 클라이언트 요청을 전달하여 네트워크를 통해 작업하는 모든 정보를 처리한다.
 ### Logging Request
+실제 Service에 요청을 전달하기 전/후 요청에 대한 로그를 남길 수 있다.
 ### Caching request results
+result를 캐싱해놓음으로서 반복적인 요청에 대해 Service를 호출하지 않고 캐싱해놓은 데이터를 return 해주면 된다.
 ### Smart reference
+Smart reference. This is when you need to be able to dismiss a heavyweight object once there are no clients that use it.
+
+The proxy can keep track of clients that obtained a reference to the service object or its results. From time to time, the proxy may go over the clients and check whether they are still active. If the client list gets empty, the proxy might dismiss the service object and free the underlying system resources.
+
+The proxy can also track whether the client had modified the service object. Then the unchanged objects may be reused by other clients.
 ## 구현방법
 1. 존재하는 service interface가 없다면, proxy와 service object를 상호 교환 할 수 있는 interface를 하나 만든다. Service 클래스로 부터 interface를 뽑아내는 것은 항상 가능한 것은 아니다. interface를 뽑아내고 사용하기 위해 많은 곳을 변경해야 하기ㅏ 때문이다. 이럴 경우 대안으로 service 클래스를 상속받아 proxy를 만들 수 있다. 이 경우 proxy는 service 클래스의 interface를 상속받을 수 있다.
 2. Proxy 클래스 에는 service의 reference를 담을 수 있는 필드가 필요하다. 보통 proxy는 service의 생명주기를 관리한다. 드물게 클라이언트가 생성자를 통해 service를 전달하기도 한다.
