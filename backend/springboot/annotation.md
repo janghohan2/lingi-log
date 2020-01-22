@@ -84,31 +84,108 @@ The major difference between these stereotypes is they are used for different cl
 ### @Autowired
 * 객체를 자동으로 주입하는 어노테이션
 * 어떤 빈을 주입할 지 선택지가 명확하니 컨테이너가 알아서 resolve 해달라는 의미
-1. 해당 타입의 빈 객체가 존재하지 않는 경우 예외 처리
+* 해당 타입의 빈 객체가 존재하지 않는 경우 예외 처리
     * @Autowired(required=false)
     * 기본 : @Autowired(required=true)
-1. 동일한 타입의 빈 객체가 두 개 이상 존재하는 경우 예외 처리
+* 동일한 타입의 빈 객체가 두 개 이상 존재하는 경우 예외 처리
     * @Qualifier("설정파일에서 지정한 값")으로 지정
-#### 사용법
-* 필드 주입
-* setter
-* 생성자
-    * 순환 참조에 의한 stack overflow 방지 가능
-    * null pointer exception 방지 가능(setter 사용하는 경우, set 되기 전, 객체를 사용하면 null pointer exception 발생 가능.)
-    ```java
-    public class MyController {
-        private MyService myService;
+* ### 사용법
+    * 필드 주입
+    * setter
+    * 생성자
+        * 순환 참조에 의한 stack overflow 방지 가능
+        * null pointer exception 방지 가능(setter 사용하는 경우, set 되기 전 객체를 사용하면 null pointer exception 발생 가능.)
+        ```java
+        public class MyController {
+            private MyService myService;
 
-        @Autowired // 인젝션 할 필드가 한개 라면 생략 가능.
-        public MyController(MyService myService){
-            this.myService = myService;
+            @Autowired // 인젝션 할 필드가 한개 라면 생략 가능.
+            public MyController(MyService myService){
+                this.myService = myService;
+            }
         }
-    }
-    ```
+        ```
+* ### 주의사항
+    * #### `@Async`나 `@Transaction`같이 AOP기능이 사용된 Bean을 주입하는 경우
+        * 스프링에서 가장 기본적으로 사용되는 스프링 AOP 방식은 런타임시 JDK dynamic proxy를 사용하도록 되어있다. 만약 내가 주입하고자 하는 Bean에 AOP가 사용되었고, 특정 interface를 구현한 객체라면 주입할때 타입을 인터페이스 타입으로 선언해 주거나 AOP 방식을 CGLIB proxy 방식을 사용 혹은 AspectJ를 사용해야 한다.
+        1. 주입할때 타입을 인터페이스 타입으로 선언
+        ```java
+        @Configuration
+        @EnableAsync
+        public class AsyncConfig{
 
+        }
 
-* @Resource(name="swMonitoringService") private SwMonitoringService service;
+        public interface AInterface{
+            ...
+        }
 
+        @Service
+        public class AClass implements AInterface{
+            @Async("asyncExecutor")
+            public void myMethod(){
+                ...
+            }
+        }
+
+        public class AController{
+            // 타입을 인터페이스로 선언해줘야 한다.
+            // 클래스 타입 선언 시 BeanNotOfRequiredTypeException 발생
+            @Autowired AInterface aClass;
+        }
+        ```
+        2. AOP 방식을 CGLIB proxy 방식을 사용 
+        ```java
+        @Configuration
+        @EnableAsync(proxyTargetClass=true)
+        public class AsyncConfig{
+
+        }
+
+        public interface AInterface{
+            ...
+        }
+
+        @Service
+        public class AClass implements AInterface{
+            @Async("asyncExecutor")
+            public void myMethod(){
+                ...
+            }
+        }
+
+        public class AController{
+            // 둘 다 사용 가능
+            @Autowired AInterface aClass;
+            @Autowired AClass aClass;
+        }
+        ```
+        3. AspectJ를 사용
+        ```java
+        @Configuration
+        @EnableAsync(mode=AdviceMode.ASPECTJ)
+        public class AsyncConfig{
+
+        }
+
+        public interface AInterface{
+            ...
+        }
+
+        @Service
+        public class AClass implements AInterface{
+            @Async("asyncExecutor")
+            public void myMethod(){
+                ...
+            }
+        }
+
+        public class AController{
+            // 둘 다 사용 가능
+            @Autowired AInterface aClass;
+            @Autowired AClass aClass;
+        }
+        ```
 ## Configuration
 * @Configuration
     * 스프링 설정 클래스로 지정한다.
