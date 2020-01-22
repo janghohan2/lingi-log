@@ -26,4 +26,4 @@ Aspect-oriendted Programming (AOP)은 OOP를 보완하는 수단으로, 흩어�
 * 클라이언트 코드 변경 없음.
 * AbstractAutoProxyCreator implements BeanPostProcessor
 
-## 사용법
+## AspectJ
