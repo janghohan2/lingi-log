@@ -83,7 +83,7 @@ The major difference between these stereotypes is they are used for different cl
 연결방식2|@Autowired @Qualifier('이름')|@Inject @Qualifier('이름')|
 ### @Autowired
 * 객체를 자동으로 주입하는 어노테이션
-* 어떤 빈을 주입할 지 선택지가 명확하니 컨테이너가 아라서 resolve 해달라는 의미/
+* 어떤 빈을 주입할 지 선택지가 명확하니 컨테이너가 알아서 resolve 해달라는 의미
 1. 해당 타입의 빈 객체가 존재하지 않는 경우 예외 처리
     * @Autowired(required=false)
     * 기본 : @Autowired(required=true)
