@@ -107,85 +107,86 @@ The major difference between these stereotypes is they are used for different cl
         ```
 * ### 주의사항
     * #### `@Async`나 `@Transaction`같이 AOP기능이 사용된 Bean을 주입하는 경우
-        * 스프링에서 가장 기본적으로 사용되는 스프링 AOP 방식은 런타임시 JDK dynamic proxy를 사용하도록 되어있다. 만약 내가 주입하고자 하는 Bean에 AOP가 사용되었고, 특정 interface를 구현한 객체라면 주입할때 타입을 인터페이스 타입으로 선언해 주거나 AOP 방식을 CGLIB proxy 방식을 사용 혹은 AspectJ를 사용해야 한다.
+        *스프링에서 가장 기본적으로 사용되는 스프링 AOP 방식은 런타임시 JDK dynamic proxy를 사용하도록 되어있다. 만약 내가 주입하고자 하는 Bean에 AOP가 사용되었고, 특정 interface를 구현한 객체라면 주입할때 타입을 인터페이스 타입으로 선언해 주거나 AOP 방식을 CGLIB proxy 방식을 사용 혹은 AspectJ를 사용해야 한다.
+        
         1. 주입할때 타입을 인터페이스 타입으로 선언
-        ```java
-        @Configuration
-        @EnableAsync
-        public class AsyncConfig{
+            ```java
+            @Configuration
+            @EnableAsync
+            public class AsyncConfig{
 
-        }
+            }
 
-        public interface AInterface{
-            ...
-        }
-
-        @Service
-        public class AClass implements AInterface{
-            @Async("asyncExecutor")
-            public void myMethod(){
+            public interface AInterface{
                 ...
             }
-        }
 
-        public class AController{
-            // 타입을 인터페이스로 선언해줘야 한다.
-            // 클래스 타입 선언 시 BeanNotOfRequiredTypeException 발생
-            @Autowired AInterface aClass;
-        }
-        ```
-        2. AOP 방식을 CGLIB proxy 방식을 사용 
-        ```java
-        @Configuration
-        @EnableAsync(proxyTargetClass=true)
-        public class AsyncConfig{
+            @Service
+            public class AClass implements AInterface{
+                @Async("asyncExecutor")
+                public void myMethod(){
+                    ...
+                }
+            }
 
-        }
+            public class AController{
+                // 타입을 인터페이스로 선언해줘야 한다.
+                // 클래스 타입 선언 시 BeanNotOfRequiredTypeException 발생
+                @Autowired AInterface aClass;
+            }
+            ```
+        2. CGLIB proxy 방식을 사용 
+            ```java
+            @Configuration
+            @EnableAsync(proxyTargetClass=true)
+            public class AsyncConfig{
 
-        public interface AInterface{
-            ...
-        }
+            }
 
-        @Service
-        public class AClass implements AInterface{
-            @Async("asyncExecutor")
-            public void myMethod(){
+            public interface AInterface{
                 ...
             }
-        }
 
-        public class AController{
-            // 둘 다 사용 가능
-            @Autowired AInterface aClass;
-            @Autowired AClass aClass;
-        }
-        ```
+            @Service
+            public class AClass implements AInterface{
+                @Async("asyncExecutor")
+                public void myMethod(){
+                    ...
+                }
+            }
+
+            public class AController{
+                // 둘 다 사용 가능
+                @Autowired AInterface aClass;
+                @Autowired AClass aClass;
+            }
+            ```
         3. AspectJ를 사용
-        ```java
-        @Configuration
-        @EnableAsync(mode=AdviceMode.ASPECTJ)
-        public class AsyncConfig{
+            ```java
+            @Configuration
+            @EnableAsync(mode=AdviceMode.ASPECTJ)
+            public class AsyncConfig{
 
-        }
+            }
 
-        public interface AInterface{
-            ...
-        }
-
-        @Service
-        public class AClass implements AInterface{
-            @Async("asyncExecutor")
-            public void myMethod(){
+            public interface AInterface{
                 ...
             }
-        }
 
-        public class AController{
-            // 둘 다 사용 가능
-            @Autowired AInterface aClass;
-            @Autowired AClass aClass;
-        }
-        ```
+            @Service
+            public class AClass implements AInterface{
+                @Async("asyncExecutor")
+                public void myMethod(){
+                    ...
+                }
+            }
+
+            public class AController{
+                // 둘 다 사용 가능
+                @Autowired AInterface aClass;
+                @Autowired AClass aClass;
+            }
+            ```
 ## Configuration
 * @Configuration
     * 스프링 설정 클래스로 지정한다.
