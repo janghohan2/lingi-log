@@ -11,7 +11,7 @@ Pointcut|Advice를 적용할 조인트포인트를 선별하는 과정이나 그
 Target|Advice를 받을 대상을 의미
 Weaving|어드바이스를 적용하는것을 의미. 공통 코드를 원하는 대상에 삽입하는것을 의미한다.
 
-## Weaving
+### Weaving
 종류|설명
 -|-
 Runtime weaving|JDK dynamic proxy 나 CGLIB proxy를 생성하여 실행시간에 target에 weaving 하는 방식
@@ -19,17 +19,20 @@ Compile-time weaving|컴파일 시점에 Application 소스코드와 Aspect 코�
 Post-compile weaving|Binary weaving이라고도 하며 이미 존재하는 클래스나 JAR파일을 조작하여 weaving 한다.
 Load-time weaving|Weaving 하는 시점을 class loader가 class를 jvm에 로드하는 시점으로 늦춘 것 빼고 Post-compile weaving방식과 동일. 
 
-### Runtime weaving
-Spring AOP가 사용하는 방식으로, proxy(JDK dynamic proxy 나 CGLIB prox)를 사용하여 구현되었다.
+## AOP 구현체
+* AspectJ
+* 스프링 AOP
+### 스프링 AOP
+Runtime weaving 방식을 사용하며 프록시 기반 AOP 구현체이다.
+#### Runtime weaving
+proxy(JDK dynamic proxy 나 CGLIB prox)를 사용하여 구현되었다.
 
 ![runtime weaving](../../assets/images/backend/springboot/aop-3.png)
 
 둘의 차이점은, JDK dynamic proxy는 interface 기반, CGLIB proxy는 class 기반이라는 것이다.
+JDK dynamic proxy – Spring AOP에서 선호하는 방법이다. targeted object가 interface를 구현하였다면 JDK dynamic proxy가 사용된다.
+CGLIB proxy – target object가 interface를 구현하지 않았다면, CGLIB proxy 가 사용된다.
 
-## AOP 구현체
-* AspectJ
-* 스프링 AOP
-### 스프링 AOP: 프록시 기반 AOP
 스프링 AOP 특징
 * 프록시 기반의 AOP 구현체
 * 스프링 빈에만 AOP를 적용 할 수 있다.
@@ -44,3 +47,4 @@ Spring AOP가 사용하는 방식으로, proxy(JDK dynamic proxy 나 CGLIB prox)
 * AbstractAutoProxyCreator implements BeanPostProcessor
 
 ### AspectJ
+AspectJ는 컴파일 시점에 소스코드가 aspect와 함께 컴파일된다. 스프링 AOP와 달리 runtime에 따로 할게 없다. 또한 스프링 AOP와 달리 어떤 Design pattern도 필요없다.(And so unlike Spring AOP, it doesn't require any design patterns.) To weave the aspects to the code, it introduces its compiler known as AspectJ compiler (ajc), through which we compile our program and then runs it by supplying a small (< 100K) runtime library.
