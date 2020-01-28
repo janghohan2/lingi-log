@@ -56,7 +56,11 @@ module.exports = {
                         'book/object/5-책임_할당하기',
                         'book/object/6-메시지와_인터페이스',
                         'book/object/7-객체_분해',
-                        'book/object/8-의존성_관리하기'
+                        'book/object/8-의존성_관리하기',
+                        'book/object/9-유연한_설계',
+                        'book/object/10-상속과_코드_재사용',
+                        'book/object/11-합성과_유연한_설계',
+                        'book/object/12-다형성'
                     ]
                 }]
             }],
