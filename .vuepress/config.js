@@ -11,7 +11,7 @@ module.exports = {
             { "text": "Backend", "link": "/backend/", "position": "left", "external": false },
             { "text": "Frontend", "link": "/frontend/", "position": "left", "external": false },
             { "text": "Linux", "link": "/linux/", "position": "left", "external": false },
-            { "text": "DB", "link": "/db/", "position": "left", "external": false },
+            { "text": "Experiences", "link": "/experiences/", "position": "left", "external": false },
             { "text": "About", "link": "/about", "position": "right", "external": false }
         ],
         lastUpdated: 'Last Updated',
@@ -130,10 +130,12 @@ module.exports = {
                     //_linux운영
                 ]
             }],
-            '/db/': [{
-                title: 'DB',
+            '/experiences/': [{
+                title: 'Experiences',
                 collapsable: false,
                 children: [
+                    '1-deadlock_exception',
+                    '2-Autowired와_AOP'
                     //_db
                 ]
             }],
