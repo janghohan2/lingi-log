@@ -37,7 +37,7 @@ Controller에 Bean으로 등록한 Service를 @Autowired를 통해 주입 받아
 
 이쯤 보고 로그를 다시 보자. 뭔가 건질만한게 있을까?
 ```
-Caused by: org.springframework.beans.factory.BeanNotOfRequiredTypeException: Bean named 'deployComp' is expected to be of type 'com.goodluck.newwm.api.library.deploy.service.DeployItem' but was actually of type 'com.sun.proxy.$Proxy95'
+Caused by: org.springframework.beans.factory.BeanNotOfRequiredTypeException: Bean named 'deployItemC' is expected to be of type 'com.goodluck.newwm.api.library.deploy.service.DeployItem' but was actually of type 'com.sun.proxy.$Proxy95'
 ```
 
 여전히 모르겠지만 이상한 점이 하나 보인다. 왜 `deployComp`의 타입이 `com.sun.proxy.$Proxy95`이지? 
@@ -73,7 +73,7 @@ Runtime weaving 방식을 사용하며 프록시 기반 AOP 구현체이다.
 ### Runtime weaving
 proxy(JDK dynamic proxy 나 CGLIB prox)를 사용하여 구현되었다.
 
-![runtime weaving](../../assets/images/backend/springboot/aop-3.png)
+![runtime weaving](https://raw.githubusercontent.com/lingi-log/lingi-log/master/assets/images/backend/springboot/aop-3.png)
 
 둘의 차이점은, JDK dynamic proxy는 interface 기반, CGLIB proxy는 class 기반이라는 것이다.
 JDK dynamic proxy – Spring AOP에서 선호하는 방법이다. targeted object가 interface를 구현하였다면 JDK dynamic proxy가 사용된다.
