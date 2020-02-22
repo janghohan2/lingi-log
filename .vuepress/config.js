@@ -9,8 +9,8 @@ module.exports = {
         nav: [
             { "text": "Study", "link": "/study/", "position": "left", "external": false },
             { "text": "Backend", "link": "/backend/", "position": "left", "external": false },
-            { "text": "Frontend", "link": "/frontend/", "position": "left", "external": false },
-            { "text": "Linux", "link": "/linux/", "position": "left", "external": false },
+            // { "text": "Frontend", "link": "/frontend/", "position": "left", "external": false },
+            // { "text": "Linux", "link": "/linux/", "position": "left", "external": false },
             { "text": "Experiences", "link": "/experiences/", "position": "left", "external": false },
             { "text": "About", "link": "/about", "position": "right", "external": false }
         ],
@@ -60,7 +60,8 @@ module.exports = {
                         'book/object/9-유연한_설계',
                         'book/object/10-상속과_코드_재사용',
                         'book/object/11-합성과_유연한_설계',
-                        'book/object/12-다형성'
+                        'book/object/12-다형성',
+                        'book/object/15-디자인_패턴과_프레임워크'
                     ]
                 }]
             }],
@@ -135,7 +136,8 @@ module.exports = {
                 collapsable: false,
                 children: [
                     '1-deadlock_exception',
-                    '2-Autowired와_AOP'
+                    '2-Autowired와_AOP',
+                    '3-shellscript_kill'
                     //_db
                 ]
             }],
