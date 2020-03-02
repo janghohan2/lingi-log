@@ -1,4 +1,4 @@
-# Shell script와 kill 명령어
+# Kill과 trap
 shell script를 kill 할 때 하던 작업을 모두 완료한 후 process를 죽여야 했다. 지금까진 그냥 kill을 했었는데 중간에 kill 하면 데이터가 유실되는 상황 이 있었고 그게 문제가 되었다. 해결법을 이리 저리 찾아보다 적절한 방법을 찾게되어 기록한다.
 
 ## 해결방법

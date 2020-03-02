@@ -35,15 +35,6 @@ module.exports = {
                     ]
                 }]
             }, {
-                title: '깨끗한 코드',
-                collapsable: false,
-                children: [
-                    'refactoring/1_intro',
-                    'refactoring/2_목표설명',
-                    'refactoring/3_적용',
-                    'refactoring/4_적용2'
-                ]
-            }, {
                 title: '책',
                 collapsable: false,
                 children: [{
@@ -137,8 +128,25 @@ module.exports = {
                 children: [
                     '1-deadlock_exception',
                     '2-Autowired와_AOP',
-                    '3-shellscript_kill'
-                    //_db
+                    '3-kill과_trap',
+                    //_db{
+                    {
+                        title: '깨끗한 코드',
+                        collapsable: true,
+                        children: [
+                            'refactoring/1_intro',
+                            'refactoring/2_목표설명',
+                            'refactoring/3_적용',
+                            'refactoring/4_적용2'
+                        ]
+                    }, {
+                        title: '과제 풀이',
+                        collapsable: true,
+                        children: [
+                            'homework-review/1-intro',
+                            'homework-review/2-설계'
+                        ]
+                    }
                 ]
             }],
             // fallback

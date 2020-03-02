@@ -1,8 +1,6 @@
 # Autowired와 AOP
 AOP(Aspect-oriendted Programming)는 OOP를 보완하는 수단으로, 흩어진 Aspect를 모듈화 할 수 있는 프로그래밍 기법 이고, Autowired는 Spring에서 아~주 간편하게 의존성을 주입하는 방법이다. 토이프로젝트를 진행하며 AOP와 Autowired를 함께 사용하다 겪은 문제상황과 이를 해결한 경험을 기록해놓고자 한다.
 
-우선 말해두지만 나는 SpringBoot 완전 초보라... 모르는게 많다ㅠ
-
 ## 문제상황
 Controller에 Bean으로 등록한 Service를 @Autowired를 통해 주입 받아 사용하려 했지만 `BeanNotOfRequiredTypeException`이 발생했다. 분명 어제까진 된것 같은데... 뭐때문에 발생한걸까? 
 > ### BeanNotOfRequiredTypeException은 언제 발생하지?
