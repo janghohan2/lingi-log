@@ -9,7 +9,7 @@ module.exports = {
         nav: [
             { "text": "Study", "link": "/study/", "position": "left", "external": false },
             { "text": "Backend", "link": "/backend/", "position": "left", "external": false },
-            // { "text": "Frontend", "link": "/frontend/", "position": "left", "external": false },
+            { "text": "Programming", "link": "/programming/Immutable", "position": "left", "external": false },
             // { "text": "Linux", "link": "/linux/", "position": "left", "external": false },
             { "text": "Experiences", "link": "/experiences/", "position": "left", "external": false },
             { "text": "About", "link": "/about", "position": "right", "external": false }
@@ -108,6 +108,13 @@ module.exports = {
                 collapsable: false,
                 children: [
                     //_others
+                ]
+            }],
+            '/programming/': [{
+                title: '프로그래밍',
+                collapsable: false,
+                children: [
+                    'Immutable'
                 ]
             }],
             '/linux/': [{
