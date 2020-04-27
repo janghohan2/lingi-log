@@ -114,7 +114,8 @@ module.exports = {
                 title: '프로그래밍',
                 collapsable: false,
                 children: [
-                    'Immutable'
+                    'Immutable',
+                    'enum'
                 ]
             }],
             '/linux/': [{
