@@ -100,6 +100,13 @@ public int value() {
 public String getReasonPhrase() {
     return this.reasonPhrase;
 }
+
+/////////////////////////////////////////////
+///                 사용                    //
+/////////////////////////////////////////////
+HttpStatus.OK.value();
+HttpStatus.OK.getReasonPhrase();
+
 ```
 이런 식으로 public method를 선언하여 외부에서 접근할 수 있다.
 
@@ -120,7 +127,7 @@ public enum FirstItemDetail implements ItemTypeDetail {
     private static final Map<String, FirstItemDetail> map = new HashMap<>();
     static{
         for(FirstItemDetail firstitemDetail : FirstItemDetail.values()){
-            map.put(FirstitemDetail.value, firstitemDetail);
+            map.put(firstitemDetail.value, firstitemDetail);
         }
     }
 
