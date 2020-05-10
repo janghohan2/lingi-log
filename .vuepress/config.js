@@ -54,6 +54,13 @@ module.exports = {
                         'book/object/12-다형성',
                         'book/object/15-디자인_패턴과_프레임워크'
                     ]
+                }, {
+                    title: '이펙티브자바',
+                    collapsable: false,
+                    children: [
+                        'book/effectivejava/rule13',
+                        'book/effectivejava/rule14'
+                    ]
                 }]
             }],
             '/backend/': [{
@@ -147,14 +154,15 @@ module.exports = {
                             'refactoring/3_적용',
                             'refactoring/4_적용2'
                         ]
-                    }, {
-                        title: '과제 풀이',
-                        collapsable: true,
-                        children: [
-                            'homework-review/1-intro',
-                            'homework-review/2-설계'
-                        ]
                     }
+                    // , {
+                    //     title: '과제 풀이',
+                    //     collapsable: true,
+                    //     children: [
+                    //         'homework-review/1-intro',
+                    //         'homework-review/2-설계'
+                    //     ]
+                    // }
                 ]
             }],
             // fallback
