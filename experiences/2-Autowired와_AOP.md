@@ -1,4 +1,4 @@
-# Autowired와 AOP
+# Autowired와 AOP를 함께 사용할 때 주의 해야 할 점
 AOP(Aspect-oriendted Programming)는 OOP를 보완하는 수단으로, 흩어진 Aspect를 모듈화 할 수 있는 프로그래밍 기법 이고, Autowired는 Spring에서 아~주 간편하게 의존성을 주입하는 방법이다. 토이프로젝트를 진행하며 AOP와 Autowired를 함께 사용하다 겪은 문제상황과 이를 해결한 경험을 기록해놓고자 한다.
 
 ## 문제상황
@@ -27,7 +27,7 @@ Controller에 Bean으로 등록한 Service를 @Autowired를 통해 주입 받아
 
 
 일단 클래스 다이어그램을 보자.
-![](https://raw.githubusercontent.com/lingi-log/lingi-log/master/assets/images/experiences/deployclassdiagram.jpeg)
+![클래스다이어그램](https://raw.githubusercontent.com/lingi-log/lingi-log/master/assets/images/experiences/deployclassdiagram.png)
 
 인터페이스 `Deploy<T>`가 있고, 이를 구현한 추상클래스 `DeployItem`와 클래스 `DeployGroup`이 있다. 그리고 추상클래스 `DeployItem`를 상속받은 클래스 `DeployItemA`, `DeployItemB`, `DeployItemC`가 있다. `DeployGroup`, `DeployItemA`, `DeployItemB`, `DeployItemC`는 `@Service` 어노테이션을 붙여 Bean으로 등록했다. (설계를 왜 이렇게 했는지에 대한 의문이 든다면 잠시 접어두자.)
 
@@ -35,7 +35,7 @@ Controller에 Bean으로 등록한 Service를 @Autowired를 통해 주입 받아
 
 이쯤 보고 로그를 다시 보자. 뭔가 건질만한게 있을까?
 ```
-Caused by: org.springframework.beans.factory.BeanNotOfRequiredTypeException: Bean named 'deployItemC' is expected to be of type 'com.goodluck.newwm.api.library.deploy.service.DeployItem' but was actually of type 'com.sun.proxy.$Proxy95'
+Caused by: org.springframework.beans.factory.BeanNotOfRequiredTypeException: Bean named 'deployItemC' is expected to be of type '~~~~~.DeployItem' but was actually of type 'com.sun.proxy.$Proxy95'
 ```
 
 여전히 모르겠지만 이상한 점이 하나 보인다. 왜 `deployComp`의 타입이 `com.sun.proxy.$Proxy95`이지? 
@@ -54,6 +54,8 @@ Pointcut|Advice를 적용할 조인트포인트를 선별하는 과정이나 그
 Target|Advice를 받을 대상을 의미
 Weaving|어드바이스를 적용하는것을 의미. 공통 코드를 원하는 대상에 삽입하는것을 의미한다.
 
+AOP의 개념들 중 Weaving에 대해 조금 더 알아보자
+
 ### Weaving
 종류|설명
 -|-
@@ -61,6 +63,8 @@ Runtime weaving|JDK dynamic proxy 나 CGLIB proxy를 생성하여 실행시간�
 Compile-time weaving|컴파일 시점에 Application 소스코드와 Aspect 코드를 Weaving 하여 AOP가 적용된 클래스를 만들어내는 방식
 Post-compile weaving|Binary weaving이라고도 하며 이미 존재하는 클래스나 JAR파일을 조작하여 weaving 한다.
 Load-time weaving|Weaving 하는 시점을 class loader가 class를 jvm에 로드하는 시점으로 늦춘 것 빼고 Post-compile weaving방식과 동일. 
+
+Weaving이 무엇인지는 대충 알 것 같고, 이어서 Spring에서 AOP를 어떻게 구현했는지 알아보자.
 
 ### AOP 구현체
 * AspectJ
@@ -117,3 +121,5 @@ public void deploy(DeployItemReqDto deployItemReqDto) throws Exception {
         ...
     }
     ```
+## 결론
+`@Autowired`를 통해 의존성을 주입받고 싶은 Bean이 @Async와 같이 `AOP`를 사용해야 하는 어노테이션이 붙은 객체라면 반드시 **필드를 Interface Type으로 선언**해야 하고, 이렇게 할 수 없는 경우엔 **GCLIB proxy를 사용하거나 AspectJ를 사용**하면 된다.

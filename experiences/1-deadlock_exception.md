@@ -60,7 +60,7 @@ LOCK WAIT 3 lock struct(s), heap size 360, 6 row lock(s), undo log entries 1
 MySQL thread id 949396, OS thread handle 0x7fef8cfb6700, query id 28309277 127.0.0.1 root updating
 UPDATE    {tbl_a}   SET    {date_col} = now()   WHERE    {client_key} = '{value}'
 *** (1) WAITING FOR THIS LOCK TO BE GRANTED:
-RECORD LOCKS space id 981 page no 3 n bits 128 index `PRIMARY` of table `kmng`.`t_asset_equi` trx id 92465172 lock_mode X waiting
+RECORD LOCKS space id 981 page no 3 n bits 128 index `PRIMARY` of table `{tbl_a}` trx id 92465172 lock_mode X waiting
 *** (2) TRANSACTION:
 TRANSACTION 92465171, ACTIVE 0 sec starting index read
 mysql tables in use 36, locked 36
