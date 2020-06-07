@@ -59,7 +59,8 @@ module.exports = {
                     collapsable: false,
                     children: [
                         'book/effectivejava/rule13',
-                        'book/effectivejava/rule14'
+                        'book/effectivejava/rule14',
+                        'book/effectivejava/rule16'
                     ]
                 }]
             }],
