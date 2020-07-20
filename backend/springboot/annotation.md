@@ -54,15 +54,15 @@
 ### 사용 예
 ```java
 @GetMapping(value="/{type}/aliveCheck")
-    public Map<String, Object> aliveCheck(@PathVariable String type) throws Exception{
-        ...
-    }
+public Map<String, Object> aliveCheck(@PathVariable String type) throws Exception{
+    ...
+}
 ```
 ```java
 @GetMapping(value="/{type}/log-tail")
-    public Map<String, Object> log(@PathVariable String type, @RequestParam("fp") String filePointer) throws Exception{
-        ...
-    }
+public Map<String, Object> log(@PathVariable String type, @RequestParam("fp") String filePointer) throws Exception{
+    ...
+}
 ```
 ## Service, Repository, Component
 https://www.baeldung.com/spring-component-repository-service

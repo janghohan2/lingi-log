@@ -58,9 +58,9 @@ module.exports = {
                     title: '이펙티브자바',
                     collapsable: false,
                     children: [
-                        'book/effectivejava/rule13',
-                        'book/effectivejava/rule14',
-                        'book/effectivejava/rule16'
+                        'book/effectivejava/rule15',
+                        'book/effectivejava/rule16',
+                        'book/effectivejava/rule18'
                     ]
                 }]
             }],
