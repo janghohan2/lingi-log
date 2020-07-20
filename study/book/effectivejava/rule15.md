@@ -14,12 +14,12 @@ private|O|X|X|X
 
 원칙은 단순하다. 
 * 각 클래스와 멤버는 가능한 한 접근 불가능하도록 만들라는것.
-* 객체 필드(instance field)는 저대로 public으로 선언하면 안 된다.
+* 객체 필드(instance field)는 절대로 public으로 선언하면 안 된다.
 * 변경 가능 public 필드를 가진 클래스는 다중 스레드에 안전하지 않다.
 * `public static final`배열 필드를 두거나, 배열 필드를 반환하는 접근자(accessor)를 정의하면 안 된다.
 
 ## 정리
-* 접근 권한은 가능한 낮추라.
+* 접근 권한은 가능한 낮춰라.
 * 최소한의 public API를 설계한 다음, 다른 모든 클래스, 인터페이스, 멤버는 API에서 제외하라.
 * `public static final` 필드를 제외한 어떤 필드도 public 필드로 선언하지 마라.
 * `public static final` 필드가 참조하는 객체는 변경불가능객체로 만들라.
