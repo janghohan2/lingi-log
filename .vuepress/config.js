@@ -60,7 +60,9 @@ module.exports = {
                     children: [
                         'book/effectivejava/rule15',
                         'book/effectivejava/rule16',
-                        'book/effectivejava/rule18'
+                        'book/effectivejava/rule18',
+                        'book/effectivejava/rule20',
+                        'book/effectivejava/rule21'
                     ]
                 }]
             }],
