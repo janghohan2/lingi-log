@@ -62,7 +62,11 @@ module.exports = {
                         'book/effectivejava/rule16',
                         'book/effectivejava/rule18',
                         'book/effectivejava/rule20',
-                        'book/effectivejava/rule21'
+                        'book/effectivejava/rule21',
+                        'book/effectivejava/rule22',
+                        'book/effectivejava/rule23',
+                        'book/effectivejava/rule24',
+                        'book/effectivejava/rule25'
                     ]
                 }]
             }],
