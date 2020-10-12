@@ -69,7 +69,8 @@ module.exports = {
                         'book/effectivejava/rule25',
                         'book/effectivejava/rule26',
                         'book/effectivejava/rule27',
-                        'book/effectivejava/rule28'
+                        'book/effectivejava/rule28',
+                        'book/effectivejava/rule29'
                     ]
                 }]
             }],
