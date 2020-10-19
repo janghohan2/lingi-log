@@ -71,7 +71,9 @@ module.exports = {
                         'book/effectivejava/rule27',
                         'book/effectivejava/rule28',
                         'book/effectivejava/rule29',
-                        'book/effectivejava/rule30'
+                        'book/effectivejava/rule30',
+                        'book/effectivejava/rule31',
+                        'book/effectivejava/rule33'
                     ]
                 }]
             }],
