@@ -57,31 +57,45 @@ module.exports = {
                 }, {
                     title: '이펙티브자바',
                     collapsable: false,
-                    children: [
-                        'book/effectivejava/4-class-and-interface/rule15',
-                        'book/effectivejava/4-class-and-interface/rule16',
-                        'book/effectivejava/4-class-and-interface/rule18',
-                        'book/effectivejava/4-class-and-interface/rule20',
-                        'book/effectivejava/4-class-and-interface/rule21',
-                        'book/effectivejava/4-class-and-interface/rule22',
-                        'book/effectivejava/4-class-and-interface/rule23',
-                        'book/effectivejava/4-class-and-interface/rule24',
-                        'book/effectivejava/4-class-and-interface/rule25',
-                        'book/effectivejava/5-generic/rule26',
-                        'book/effectivejava/5-generic/rule27',
-                        'book/effectivejava/5-generic/rule28',
-                        'book/effectivejava/5-generic/rule29',
-                        'book/effectivejava/5-generic/rule30',
-                        'book/effectivejava/5-generic/rule31',
-                        'book/effectivejava/5-generic/rule33',
-                        'book/effectivejava/7-lambda-and-stream/rule42',
-                        'book/effectivejava/7-lambda-and-stream/rule43',
-                        'book/effectivejava/7-lambda-and-stream/rule44',
-                        'book/effectivejava/7-lambda-and-stream/rule45',
-                        'book/effectivejava/7-lambda-and-stream/rule46',
-                        'book/effectivejava/7-lambda-and-stream/rule47',
-                        'book/effectivejava/7-lambda-and-stream/rule48'
-                    ]
+                    children: [{
+                        title: '4. 클래스와 인터페이스',
+                        collapsable: true,
+                        children: [
+                            'book/effectivejava/4-class-and-interface/rule15',
+                            'book/effectivejava/4-class-and-interface/rule16',
+                            'book/effectivejava/4-class-and-interface/rule18',
+                            'book/effectivejava/4-class-and-interface/rule20',
+                            'book/effectivejava/4-class-and-interface/rule21',
+                            'book/effectivejava/4-class-and-interface/rule22',
+                            'book/effectivejava/4-class-and-interface/rule23',
+                            'book/effectivejava/4-class-and-interface/rule24',
+                            'book/effectivejava/4-class-and-interface/rule25'
+                        ]
+                    }, {
+                        title: '5. 제네릭',
+                        collapsable: true,
+                        children: [
+                            'book/effectivejava/5-generic/rule26',
+                            'book/effectivejava/5-generic/rule27',
+                            'book/effectivejava/5-generic/rule28',
+                            'book/effectivejava/5-generic/rule29',
+                            'book/effectivejava/5-generic/rule30',
+                            'book/effectivejava/5-generic/rule31',
+                            'book/effectivejava/5-generic/rule33'
+                        ]
+                    }, {
+                        title: '7. 람다와 스트림',
+                        collapsable: true,
+                        children: [
+                            'book/effectivejava/7-lambda-and-stream/rule42',
+                            'book/effectivejava/7-lambda-and-stream/rule43',
+                            'book/effectivejava/7-lambda-and-stream/rule44',
+                            'book/effectivejava/7-lambda-and-stream/rule45',
+                            'book/effectivejava/7-lambda-and-stream/rule46',
+                            'book/effectivejava/7-lambda-and-stream/rule47',
+                            'book/effectivejava/7-lambda-and-stream/rule48'
+                        ]
+                    }]
                 }]
             }],
             '/backend/': [{
