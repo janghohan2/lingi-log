@@ -73,7 +73,14 @@ module.exports = {
                         'book/effectivejava/5-generic/rule29',
                         'book/effectivejava/5-generic/rule30',
                         'book/effectivejava/5-generic/rule31',
-                        'book/effectivejava/5-generic/rule33'
+                        'book/effectivejava/5-generic/rule33',
+                        'book/effectivejava/7-lambda-and-stream/rule42',
+                        'book/effectivejava/7-lambda-and-stream/rule43',
+                        'book/effectivejava/7-lambda-and-stream/rule44',
+                        'book/effectivejava/7-lambda-and-stream/rule45',
+                        'book/effectivejava/7-lambda-and-stream/rule46',
+                        'book/effectivejava/7-lambda-and-stream/rule47',
+                        'book/effectivejava/7-lambda-and-stream/rule48'
                     ]
                 }]
             }],
