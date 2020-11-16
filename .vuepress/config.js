@@ -95,6 +95,14 @@ module.exports = {
                             'book/effectivejava/7-lambda-and-stream/rule47',
                             'book/effectivejava/7-lambda-and-stream/rule48'
                         ]
+                    }, {
+                        title: '8. 메서드',
+                        collapsable: true,
+                        children: [
+                            'book/effectivejava/8-method/rule49',
+                            'book/effectivejava/8-method/rule50',
+                            'book/effectivejava/8-method/rule51'
+                        ]
                     }]
                 }]
             }],
